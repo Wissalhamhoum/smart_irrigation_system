@@ -8,6 +8,7 @@ const fs = require('fs');
 let helmet = require('helmet');
 const ocsp = require('ocsp');
 const https = require('https')
+const http = require('http')
 
 const key_file = process.env.KEY_FILE || config["key-file"]
 const cert_file = process.env.CERT_FILE || config["cert-file"]
@@ -36,7 +37,7 @@ app.use(function(req,resp,next){
 
 var ocspCache = new ocsp.Cache();
 const server = tls.createServer(options, app);
-/*server.on('OCSPRequest', function(cert, issuer, callback) {
+server.on('OCSPRequest', function(cert, issuer, callback) {
     ocsp.getOCSPURI(cert, function(err, uri) {
         if (err) return callback(error);
         var req = ocsp.request.generate(cert, issuer);
@@ -54,9 +55,12 @@ server.on('newSession', function(sessionId, sessionData, callback) {
 });
 server.on('resumeSession', function (sessionId, callback) {
     callback(null, sslSessionCache[sessionId]);
-});*/
-const PORT = process.env.PORT || 3000
-/*const server = https.createServer(options, app)
+});
+const PORT = process.env.PORT || 443
+
+//const httpServer = http.createServer(app);
+
+/*const httpsserver = https.createServer(options, app)
     .listen(port, () => {
         console.log('server running at ' + PORT)
     })*/

@@ -76,7 +76,7 @@ passport.use(
             jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
         },
         async (token, next) => {
-           // console.log(token)
+            console.log(token)
             IdentityModel.findById(token.userId).then(function(identity, err) {
                 if (err) {
                     return next(err, false);
