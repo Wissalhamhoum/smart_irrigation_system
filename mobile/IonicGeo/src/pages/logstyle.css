@@ -1,0 +1,17 @@
+.title {
+    margin-left: 0px;
+    font-family: Andalus;
+    font-size: 20px;
+    font-style: revert;
+}
+.button {
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.content {
+    margin-left: auto;
+    margin-right: auto;
+}
