@@ -13,7 +13,7 @@ exports.createField = async (req ,res , next) =>  {
 exports.removeById = (req, res) => {
     FieldModel.deleteField (req.params.fieldId)
         .then((result)=>{
-            res.status(204);
+            res.status(201).send();
         });
 };
 
@@ -37,6 +37,7 @@ exports.getById = (req, res) => {
 exports.getList = (req, res) => {
     FieldModel.findListOfFilds(req.params.userId).then ((result) => res.status(201).send(result))
 };
+
 
 exports.putById = (req, res) => {
     FieldModel.updateFieldInfo(req.params.fieldId, req.body)

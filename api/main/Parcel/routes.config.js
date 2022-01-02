@@ -1,6 +1,4 @@
-const FieldProvider = require('./controller');
-const ParcelProvider = require('../Parcel/parcel.provider')
-const IamProvider = require('../identity/controllers/iam.provider');
+const ParcelProvider = require('./parcel.provider');
 const AuthorizationPermission = require('../security/authorization/authorization.permission');
 
 const   passport = require('passport'),
@@ -8,34 +6,34 @@ const   passport = require('passport'),
 
 
 exports.routesConfig = function (app) {
-    app.post('/field/:userId/new',[
+    app.post('/:fieldId/parcel/new',[
         passport.authenticate('jwt', { session: false }),
-        FieldProvider.createField
+        ParcelProvider.createParcel
     
     ]);
 
-    app.delete('/users/:userId/deletefield/:fieldId',[
+    app.delete('/users/:userId/deleteparcel/:parcelId',[
         passport.authenticate('jwt', { session: false } ),
         AuthorizationPermission.onlySameUserOrAdminCanDoThisAction,
-        ParcelProvider.removeAllParcels,
-        FieldProvider.removeById
-    ]);
-    app.get('/users/:userId/field/:fieldId/',[
-        passport.authenticate('jwt', { session: false }),
-        AuthorizationPermission.onlySameUserOrAdminCanDoThisAction,
-        FieldProvider.getById
+        ParcelProvider.removeById
     ]);
 
-    app.post('/users/:userId/update/:fieldId/',[
+    app.get('/users/:userId/parcel/:parcelId',[
         passport.authenticate('jwt', { session: false }),
         AuthorizationPermission.onlySameUserOrAdminCanDoThisAction,
-        FieldProvider.putById
+        ParcelProvider.getById
     ]);
 
-    app.get('/users/:userId/list/',[
+    app.post('/users/:userId/update/:parcelId/',[
         passport.authenticate('jwt', { session: false }),
         AuthorizationPermission.onlySameUserOrAdminCanDoThisAction,
-        FieldProvider.getList
+        ParcelProvider.putById
+    ]);
+
+    app.get('/users/:userId/parcel/list/',[
+        passport.authenticate('jwt', { session: false }),
+        AuthorizationPermission.onlySameUserOrAdminCanDoThisAction,
+        ParcelProvider.getList
     ]);
     
 

@@ -9,8 +9,6 @@ const privateKey = fs.readFileSync(process.env.JWT_KEY || config['jwt-key']);
 
 exports.login = (req, res) => {
     try {
-        console.log("hi")
-        console.log(refreshSecret)
         let refreshId = req.body.userId + refreshSecret + req.body.jti;
         console.log(refreshId)
         let salt = crypto.randomBytes(16).toString('base64');
@@ -48,3 +46,10 @@ exports.resetRefreshSecret = (req, res) => {
         res.status(500).send({errors: err});
     }
 };
+
+exports.preSignIn = async(req, res ) => {
+    this.clientId = req.body.userId;
+    this.codeChallenge = req.body.codeChallenge;
+    this.SignInId = require('crypto').randomBytes(32).toString('hex');
+    return res.status(200).send({SignInId : this.SignInId});
+}

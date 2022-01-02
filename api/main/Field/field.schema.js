@@ -6,7 +6,6 @@ const fieldSchema = new mongoose.Schema({
     geoLocation: {
         type: [ Number , Number ], 
         required: true ,
-        default: [ 0 , 0],
         index: {unique: true} 
     },
     plants: {type: [String]},

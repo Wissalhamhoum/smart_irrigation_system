@@ -36,7 +36,6 @@ exports.list = (req, res) => {
 };
 
 exports.getById = (req, res) => {
-    console.log("fjlg")
     IdentityModel.findById(req.params.userId)
         .then((result) => {
             res.status(200).send(result);

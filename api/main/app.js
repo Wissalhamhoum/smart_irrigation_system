@@ -15,13 +15,16 @@ require('./connection.pools')();
 require('./identity/models/identity.schema');
 require('./identity/controllers/iam.provider');
 require('./Field/field.schema');
+require('./Parcel/parcel.schema');
 
 const SecurityRouter = require('./security/routes.config');
 const IdentityRouter = require('./identity/routes.config');
-const FieldRouter = require('./Field/routes.config')
+const FieldRouter = require('./Field/routes.config');
+const ParcelRouter = require('./Parcel/routes.config');
 
 //bind routes to the express application
 SecurityRouter.routesConfig(app);
 IdentityRouter.routesConfig(app);
 FieldRouter.routesConfig(app)
+ParcelRouter.routesConfig(app)
 module.exports = app;
