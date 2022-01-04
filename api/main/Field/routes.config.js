@@ -1,6 +1,6 @@
 const FieldProvider = require('./controller');
 const ParcelProvider = require('../Parcel/parcel.provider')
-const IamProvider = require('../identity/controllers/iam.provider');
+const IamProvider = require('../Identity/controllers/iam.provider');
 const AuthorizationPermission = require('../security/authorization/authorization.permission');
 
 const   passport = require('passport'),

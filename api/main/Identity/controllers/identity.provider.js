@@ -73,9 +73,3 @@ exports.removeById = (req, res) => {
         });
 };
 
-exports.preSignIn = async(req, res ) => {
-    this.clientId = req.body.userId;
-    this.codeChallenge = req.body.codeChallenge;
-    this.SignInId = require('crypto').randomBytes(32).toString('hex');
-    return res.status(200).send({SignInId : this.SignInId});
-}

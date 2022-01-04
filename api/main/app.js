@@ -13,8 +13,8 @@ require('dotenv').config();
 
 //connect to database
 require('./connection.pools')();
-require('./identity/models/identity.schema');
-require('./identity/controllers/iam.provider');
+require('./Identity/models/identity.schema');
+require('./Identity/controllers/iam.provider');
 require('./Field/field.schema');
 require('./Parcel/parcel.schema');
 require('./mqtt/mqtt.model')

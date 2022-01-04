@@ -1,4 +1,4 @@
-const IdentityModel = require('../../identity/models/identity.model');
+const IdentityModel = require('../../Identity/models/identity.model');
 const argon2 = require('argon2');
 
 const { v4: uuidv4 } = require('uuid');
