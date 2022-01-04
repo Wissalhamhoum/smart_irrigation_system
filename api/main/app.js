@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport')
 app.use(passport.initialize())
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}))
+
 
 const path =require("path");
 require('dotenv').config();
