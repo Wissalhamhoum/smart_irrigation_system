@@ -35,7 +35,7 @@ app.use(function(req,resp,next){
         next();
     }
 });
-
+/*
 var ocspCache = new ocsp.Cache();
 const server = tls.createServer(options, app);
 server.on('OCSPRequest', function(cert, issuer, callback) {
@@ -56,7 +56,7 @@ server.on('newSession', function(sessionId, sessionData, callback) {
 });
 server.on('resumeSession', function (sessionId, callback) {
     callback(null, sslSessionCache[sessionId]);
-});
+});*/
 const PORT = process.env.PORT || 443
 
 //const httpServer = http.createServer(app);
