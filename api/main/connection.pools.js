@@ -1,4 +1,4 @@
-//mongoose = require ('mongoose')
+mongoose = require ('mongoose')
 //const url ='mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
 const urlMain = process.env.DB_URL || require('./env.config').main_db_url;
 module.exports = () => {
