@@ -35,10 +35,10 @@ app.use(function(req,resp,next){
         next();
     }
 });
-/*
-var ocspCache = new ocsp.Cache();
+
+//var ocspCache = new ocsp.Cache();
 const server = tls.createServer(options, app);
-server.on('OCSPRequest', function(cert, issuer, callback) {
+/*server.on('OCSPRequest', function(cert, issuer, callback) {
     ocsp.getOCSPURI(cert, function(err, uri) {
         if (err) return callback(error);
         var req = ocsp.request.generate(cert, issuer);
