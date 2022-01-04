@@ -9,6 +9,7 @@ let helmet = require('helmet');
 const ocsp = require('ocsp');
 const https = require('https')
 const http = require('http')
+global.TextEncoder = require("util").TextEncoder; 
 
 const key_file = process.env.KEY_FILE || config["key-file"]
 const cert_file = process.env.CERT_FILE || config["cert-file"]
