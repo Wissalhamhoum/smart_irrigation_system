@@ -6,7 +6,7 @@ var MqttData = require('./mqtt.provider')
 
 var mqttData = new MqttData();
 //Connection to MQTT
-const client = mqtt.connect('mqtts://mqtt.smartirrigationsystem.me', {
+const client = mqtt.connect('mqtt://mqtt.smartirrigationsystem.me', {
   port: 8883,
   username: 'mqttubuntu',
   password: '123456789'

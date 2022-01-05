@@ -23,12 +23,12 @@ const SecurityRouter = require('./security/routes.config');
 const IdentityRouter = require('./Identity/routes.config');
 const FieldRouter = require('./Field/routes.config');
 const ParcelRouter = require('./Parcel/routes.config');
-//const MqttRouter = require('./mqtt/config.routes')
+const MqttRouter = require('./mqtt/config.routes')
 
 //bind routes to the express application
 SecurityRouter.routesConfig(app);
 IdentityRouter.routesConfig(app);
 FieldRouter.routesConfig(app);
 ParcelRouter.routesConfig(app);
-//MqttRouter.routesConfig(app)
+MqttRouter.routesConfig(app)
 module.exports = app;
