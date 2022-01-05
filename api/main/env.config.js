@@ -8,7 +8,7 @@ module.exports = {
     'dh-strongfile': './tls/dhparam.pem',
     'jwt-key': './tls/jwtRS256.key',
     'jwt-public-key': './tls/jwtRS256.key.pub',
-    'main_db_url': "'mongodb+srv://wot_user:Wiss_key_irr@@irrigationsystem.ctd4f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    'main_db_url': "'mongodb+srv://wot_user:Wiss_key_irr@irrigationsystem.ctd4f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     'jwtValidityTimeInSeconds': 36000,
     'actualRefreshSecret': "refreshme",
     'permissionLevels': {
