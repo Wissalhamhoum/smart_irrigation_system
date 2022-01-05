@@ -1,4 +1,4 @@
-var express = require('express');
+const mqtt = require('mqtt');
 var MqttData = require('./mqtt.provider')
 /* GET mqtt listing. */
 
