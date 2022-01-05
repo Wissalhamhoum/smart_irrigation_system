@@ -1,6 +1,4 @@
 var express = require('express');
-
-var router = express.Router();
 var MqttData = require('./mqtt.provider')
 /* GET mqtt listing. */
 
