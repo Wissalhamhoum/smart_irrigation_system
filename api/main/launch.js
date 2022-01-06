@@ -24,15 +24,18 @@ const options = {
 }
 app.use(helmet());
 app.use(cors());
-app.use(function(req,resp,next){
+app.use(function(req,res,next){
+    res.header("Access-Control-Allow-Origin" , "*")
+    res.header("Access-Control-Allow-Headers" , "Origin , X-Requested-with , Content-Type , Accept")
     if (req.method =="OPTIONS")
     {
         req.header["Access-Control-Allow-Origin"] = "*";
         req.header["Access-Control-Allow-Headers"] = "Special-Request-Header";
         req.header["Access-Control-Allow-Methods"] = ["GET","PUT","POST","PATCH","DELETE"];
         req.header["Access-Control-Allow-Credentials"] = true;
+        
 
-        resp.sendStatus(200);
+        res.sendStatus(200);
     }else
     {
         next();
@@ -41,7 +44,7 @@ app.use(function(req,resp,next){
 
 //var ocspCache = new ocsp.Cache();
 const server = tls.createServer(options, app);
-/*server.on('OCSPRequest', function(cert, issuer, callback) {
+server.on('OCSPRequest', function(cert, issuer, callback) {
     ocsp.getOCSPURI(cert, function(err, uri) {
         if (err) return callback(error);
         var req = ocsp.request.generate(cert, issuer);
@@ -59,7 +62,7 @@ server.on('newSession', function(sessionId, sessionData, callback) {
 });
 server.on('resumeSession', function (sessionId, callback) {
     callback(null, sslSessionCache[sessionId]);
-});*/
+});
 const PORT = process.env.PORT || 443
 
 //const httpServer = http.createServer(app);
