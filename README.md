@@ -19,4 +19,5 @@ Smart irrigation system is mobile application that is dedicated for farmers. The
 3. clone the repository to raspberry
 
 4. Generate the executable file by running
-    `cd ./SMART_IRRIGATION_SYSTEM/IOT`
+
+`cd ./SMART_IRRIGATION_SYSTEM/IOT`
