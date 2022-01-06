@@ -19,6 +19,7 @@ passport.use('signUp',
         },
         async (req, username, password, done) => {
             try {
+                console.log(req.body)
                 let identity = IdentityModel.findByUsername({username: username});
 
                 if (identity) {
@@ -34,11 +35,8 @@ passport.use('signUp',
                     });*/
                     console.log('we are in passport')
                     console.log(req.body.password)
-                    //console.log(await argon2.verify(req.body.password , 'sirine'))
                     const saved = await IdentityModel.createIdentity(req.body);
-                    console.log('this is saved')
-                    console.log(saved.password )
-                    console.log(await argon2.verify(saved.password , 'sirine'))
+                    console.log('User Saved')
                     return done(null, saved);
                 }
             }catch (e) {

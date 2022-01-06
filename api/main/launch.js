@@ -9,6 +9,7 @@ let helmet = require('helmet');
 const ocsp = require('ocsp');
 const https = require('https')
 const http = require('http');
+const cors = require('CORS');
 const { Http2ServerRequest } = require('http2');
 global.TextEncoder = require("util").TextEncoder; 
 
@@ -22,6 +23,7 @@ const options = {
     dhparam: fs.readFileSync(dh_strongfile)
 }
 app.use(helmet());
+app.use(cors());
 app.use(function(req,resp,next){
     if (req.method =="OPTIONS")
     {
