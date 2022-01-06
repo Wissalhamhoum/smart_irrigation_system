@@ -8,7 +8,8 @@ const fs = require('fs');
 let helmet = require('helmet');
 const ocsp = require('ocsp');
 const https = require('https')
-const http = require('http')
+const http = require('http');
+const { Http2ServerRequest } = require('http2');
 global.TextEncoder = require("util").TextEncoder; 
 
 const key_file = process.env.KEY_FILE || config["key-file"]
@@ -65,6 +66,16 @@ const PORT = process.env.PORT || 443
     .listen(port, () => {
         console.log('server running at ' + PORT)
     })*/
+
+httpServer.listen( 80 , (error) => {
+    if (error)
+    {
+        console.log("something is up, maybe ...",error);
+    }else
+    {
+        console.log("port" , 80);
+    }
+});
 server.listen(PORT, (error) => {
     if (error)
     {

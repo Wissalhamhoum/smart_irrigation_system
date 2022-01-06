@@ -4,11 +4,19 @@ var MqttData = require('./mqtt.provider')
 
 var mqttData = new MqttData();
 //Connection to MQTT
-const client = mqtt.connect('20.74.240.100', {
+const client = mqtt.connect('mqtt://mqtt.smartirrigationsystem.me', {
   port: 1883,
   username: 'brokerUser',
   password: 'broker'
 });
+
+const topic = 'sensors/'
+client.on('connect', () => {
+  console.log('Connected')
+  client.subscribe([topic], () => {
+    console.log(`Subscribe to topic `)
+  })
+})
 //On received MQTT message
 client.on('message', function (topic, message) {
     //Saving received data to MongoDB
@@ -22,5 +30,5 @@ client.on('message', function (topic, message) {
   
 
 exports.routesConfig = function (app) {
-    app.get('/',[mqttData.getResults]);
+    app.get('/mqttData',[mqttData.getResults]);
 }
