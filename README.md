@@ -5,5 +5,5 @@ Smart irrigation system is mobile application that is dedicated for farmers. The
 
 ## Architecture of the project
 
-![This is an image](https://github.com/Wissalhamhoum/smart_irrigation_system/tree/main/assets/architecture.png)
+![This is an image](/assets/architecture.png)
 
