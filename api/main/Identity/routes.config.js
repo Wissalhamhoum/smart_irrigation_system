@@ -22,6 +22,7 @@ exports.routesConfig = function (app) {
             passport.authenticate('signUp', { session: false }),
             async (req, res, next) => {
                 res.location('/users/' + req.user._id);
+                //Authenticator.login
                 res.status(201).send(req.user);
             }
         ]
@@ -73,12 +74,5 @@ exports.routesConfig = function (app) {
         AuthorizationPermission.sameUserCantDoThisAction,
         IdentityProvider.removeById
     ]);
-
-
-    /*app.post('e/authoriz', async (req,res,next) => {
-        //TODO add PKCE FLOW
-
-    });*/
-
-    
+        
 };

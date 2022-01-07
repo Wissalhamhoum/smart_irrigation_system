@@ -5,7 +5,7 @@ Smart irrigation system is mobile application that is dedicated for farmers. The
 
 ## Architecture of the project
 
-![This is an image](/assets/architecture.png)
+![Architecture](/assets/architecture.png)
 
 ## IoT
 
@@ -30,10 +30,12 @@ Smart irrigation system is mobile application that is dedicated for farmers. The
 
 In the Azure virtual machine we have the mqtt broker mosquitto and the node js serve 
 - to run the mqtt broker execute:
-    `sudo systemctl start moquitto`
+    ````
+    sudo systemctl start moquitto
+    ````
 - to run the node js server:
 
-     ````
+    ````
     cd ./SMART_IRRIGATION_SYSTEM/api/main
     npm install
     sudo npm start
@@ -49,3 +51,9 @@ In the Azure virtual machine we have the mqtt broker mosquitto and the node js s
 
 - Third step: 
     Now we can run our app by typing ionic serve
+
+
+## Testing
+Bellow you can find examples of postman request to test signIn and signUp 
+![Sign up](/assets/signup_exp.png)
+![Sign up](/assets/signin_exp.png)

@@ -1,0 +1,37 @@
+<ion-header color = "primary" [translucent]="true">
+  <ion-toolbar >
+    <ion-title color="light">
+      Sign Up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item >
+    <ion-label color="light">Username</ion-label>
+    <ion-input color="light" type="username" placeholder="username"></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label color="light">Name</ion-label>
+    <ion-input color="light" type="name" placeholder="name"></ion-input>
+  </ion-item>
+
+  <ion-item >
+    <ion-label color="light">Email</ion-label>
+    <ion-input color="light" type="email" placeholder="email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="light">Password</ion-label>
+    <ion-input color="light" type="password" placeholder="password"></ion-input>
+  </ion-item>
+
+
+
+  <br>
+  <br>
+  <ion-button color="light" expand="block" shape="round" fill="outline" (click)="GoToTab1()">Sign Up</ion-button>
+  <br>
+  <ion-button color="tertiary" expand="block" shape="round" (click)="GoToTab11()">Already have an account? Sign In</ion-button>
+</ion-content>
+

@@ -23,6 +23,8 @@ const options = {
     dhparam: fs.readFileSync(dh_strongfile)
 }
 app.use(helmet());
+
+/* Imprlementing the cors */
 app.use(cors());
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin" , "*")
@@ -42,9 +44,16 @@ app.use(function(req,res,next){
     }
 });
 
+/****** 
+ * Despite fully knowing its importance We decided to comment it since it caused too much problems and errors
+ ****** /
+
+
 //var ocspCache = new ocsp.Cache();
-const server = tls.createServer(options, app);
-server.on('OCSPRequest', function(cert, issuer, callback) {
+
+
+
+/*server.on('OCSPRequest', function(cert, issuer, callback) {
     ocsp.getOCSPURI(cert, function(err, uri) {
         if (err) return callback(error);
         var req = ocsp.request.generate(cert, issuer);
@@ -62,15 +71,10 @@ server.on('newSession', function(sessionId, sessionData, callback) {
 });
 server.on('resumeSession', function (sessionId, callback) {
     callback(null, sslSessionCache[sessionId]);
-});
+});*/
+
+
 const PORT = process.env.PORT || 443
-
-//const httpServer = http.createServer(app);
-
-/*const httpsserver = https.createServer(options, app)
-    .listen(port, () => {
-        console.log('server running at ' + PORT)
-    })*/
 
 httpServer.listen( 80 , (error) => {
     if (error)
@@ -78,15 +82,17 @@ httpServer.listen( 80 , (error) => {
         console.log("something is up, maybe ...",error);
     }else
     {
-        console.log("port" , 80);
+        console.log("Running on port: " , 80);
     }
 });
+
+const server = tls.createServer(options, app);
 server.listen(PORT, (error) => {
     if (error)
     {
         console.log("something is up, maybe ...",error);
     }else
     {
-        console.log("port" , PORT);
+        console.log("Running on port: " , PORT);
     }
   });

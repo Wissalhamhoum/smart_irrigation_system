@@ -29,4 +29,6 @@ exports.routesConfig = function (app) {
         Authorization.minimumPermissionLevelRequired(Master),
         Authenticator.resetRefreshSecret
     ]);
+
+    
 };

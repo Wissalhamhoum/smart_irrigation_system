@@ -10,4 +10,6 @@ MqttData.prototype.getResults = async (req, res , next)=> {
 MqttData.prototype.addmqtt = (infos)=> {
   mqttData.createmqtt(infos);
 };
+
+
 module.exports = MqttData;

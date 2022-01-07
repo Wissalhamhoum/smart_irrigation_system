@@ -30,5 +30,5 @@ client.on('message', function (topic, message) {
   
 
 exports.routesConfig = function (app) {
-    app.get('/mqttData',[mqttData.getResults]);
+    app.get('/mqttData/all',[mqttData.getResults]);
 }

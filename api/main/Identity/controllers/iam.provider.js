@@ -19,7 +19,7 @@ passport.use('signUp',
         },
         async (req, username, password, done) => {
             try {
-                console.log(req.body)
+                //console.log(req.body)
                 let identity = IdentityModel.findByUsername({username: username});
 
                 if (identity) {
@@ -33,8 +33,6 @@ passport.use('signUp',
                         timeCost: 11,
                         parallelism: 2
                     });*/
-                    console.log('we are in passport')
-                    console.log(req.body.password)
                     const saved = await IdentityModel.createIdentity(req.body);
                     console.log('User Saved')
                     return done(null, saved);

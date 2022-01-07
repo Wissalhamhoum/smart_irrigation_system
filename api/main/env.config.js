@@ -1,8 +1,6 @@
 
 module.exports = {
     'app endpoint': "smartirrigationsystem.me",
-    //'key-file' : 'C:/Users/Wissal HAMHOUM/example.lcom+4-key.pem',
-    //'cert-file': 'C:/Users/Wissal HAMHOUM/example.lcom+4.pem',
     'key-file' : '/etc/letsencrypt/live/smartirrigationsystem.me/privkey.pem',
     'cert-file': '/etc/letsencrypt/live/smartirrigationsystem.me/fullchain.pem',
     'dh-strongfile': './tls/dhparam.pem',
@@ -11,6 +9,7 @@ module.exports = {
     'main_db_url': "mongodb+srv://wot_user:Wiss_key_irr@irrigationsystem.ctd4f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     'jwtValidityTimeInSeconds': 36000,
     'actualRefreshSecret': "refreshme",
+    
     'permissionLevels': {
         'Master':2048,
         'Member':1,

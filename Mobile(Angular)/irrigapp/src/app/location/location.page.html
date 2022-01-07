@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Locate your land !
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-slides class="slides-wrapper" #slides (ionSlideDidChange)="slideChanged()" >
+    <ion-slide >
+      <ion-searchbar placeholder="Search Here the address of your field!" (ionInput)="search()" [(ngModel)]="searchKey"></ion-searchbar>
+      <ion-list *ngIf="places.length > 0" class="autocomplete-address-list common-bg-light" lines="full">
+
+        <div class="list autolist">
+          <ion-item tappable (click)="onClickPickAddress(place.lat, place.lon)" class="item" *ngFor="let place of places">
+            <ion-icon name="location-outline" slot="start"></ion-icon>
+            {{place.display_name}}</ion-item>
+        </div>
+
+      </ion-list>
+      <div id="map"></div>
+    </ion-slide>
+    <ion-slide>
+    </ion-slide>
+    <ion-slide>
+      C
+    </ion-slide>
+  </ion-slides>
+</ion-content>
